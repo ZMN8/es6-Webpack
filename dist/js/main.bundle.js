@@ -76,15 +76,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-let map=new Map();
-for(let i =0;i<100;i++){
-  map.set(Symbol('zmn'),{
-    sex:'women',
-    age:18,
-    i:"soga"+i
-  })
+var s1 = Symbol.for('foo');
+
+
+class MyClass {
+  [Symbol.hasInstance](foo) {
+    return 0;
+  }
 }
-console.log('layerhahahSQW',...map,map.get(Symbol('zmn')))
+
+console.log([1, 2, 3] instanceof new MyClass()) // true
 
 
 /***/ }),
