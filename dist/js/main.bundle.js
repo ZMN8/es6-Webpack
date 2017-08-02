@@ -63,54 +63,28 @@
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
 
-/***/ 0:
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(global) {const FOO_KEY = Symbol.for('foo');
+const FOO_KEY = Symbol.for('foo');
 
 function A() {
   this.foo = 'hello';
 }
 
-if (!global[FOO_KEY]) {
-  global[FOO_KEY] = new A();
-}
-console.log( global[FOO_KEY]) ;
-global[FOO_KEY]="as";
 
-console.log( global[FOO_KEY]) ;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+var s1 = Symbol.for('foo');
 
-/***/ }),
 
-/***/ 7:
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
+class MyClass {
+  [Symbol.hasInstance](foo) {
+    return 0;
+  }
 }
 
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
+console.log([1, 2, 3] instanceof new MyClass()) // true
 
 
 /***/ })
-
-/******/ });
+/******/ ]);

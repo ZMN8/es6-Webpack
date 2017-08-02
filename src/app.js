@@ -4,10 +4,14 @@ function A() {
   this.foo = 'hello';
 }
 
-if (!global[FOO_KEY]) {
-  global[FOO_KEY] = new A();
-}
-console.log( global[FOO_KEY]) ;
-global[FOO_KEY]="as";
 
-console.log( global[FOO_KEY]) ;
+var s1 = Symbol.for('foo');
+
+
+class MyClass {
+  [Symbol.hasInstance](foo) {
+    return 0;
+  }
+}
+
+console.log([1, 2, 3] instanceof new MyClass()) // true
