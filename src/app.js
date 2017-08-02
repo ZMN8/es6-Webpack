@@ -1,13 +1,13 @@
+const FOO_KEY = Symbol.for('foo');
 
-import layer from './components/layer/layer.js'
-import './css/reset.css'
-
-let map=new Map();
-for(let i =0;i<100;i++){
-  map.set(Symbol('zmn'),{
-    sex:'women',
-    age:18,
-    i:"soga"+i
-  })
+function A() {
+  this.foo = 'hello';
 }
-console.log('layerhahahSQW',...map,map.get(Symbol('zmn')))
+
+if (!global[FOO_KEY]) {
+  global[FOO_KEY] = new A();
+}
+console.log( global[FOO_KEY]) ;
+global[FOO_KEY]="as";
+
+console.log( global[FOO_KEY]) ;
